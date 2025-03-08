@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Welcome to Candy</title>
+   <link rel="stylesheet" href="style.css">
+   <script defer src="script.js"></script>
+</head>
+<body>  
+   <!-- Timer Display -->
+   <div id="timer">Time left: 30</div> 
+
+   <!-- Warning Message (Hidden Initially) -->
+   <div id="warning" style="display: none;">⚠ Hurry Up! </div>
+
+   <!-- Score Display -->
+   <h1>Score: <span id="score">0</span></h1>
+  
+   
+   <!-- Game Board -->
+   <div id="board"></div>
+
+   <!-- Pop-up Box (Hidden Initially) -->
+   <div class="pop-up" id="popup" style="display: none;">
+      <h2>Time's Up!</h2>
+      <p>Your final score: <span id="finalScore">0</span></p>
+      <button type="button" onclick="closePopup()">OK</button>
+   </div>  
+</body> 
+</html>
