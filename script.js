@@ -172,12 +172,12 @@ function crushThree(){
            emptySpaces++;
         } else if (emptySpaces > 0) {
            board[r + emptySpaces][c].src = board[r][c].src;
-           board[r][c].src = "./images/blank.png";
+           board[r][c].src = "./images/blank.jpg";
         }
      }
 
      for (let r = 0; r < emptySpaces; r++) {
-        board[r][c].src = "./images/" + randomCandy() + ".png";
+        board[r][c].src = "./images/" + randomCandy() + ".jpg";
      }
   }
 }
