@@ -1,7 +1,6 @@
-
 let popup = document.getElementById("popup");
 let timerElement = document.getElementById("timer");
-var candies = ["Blue", "Orange", "Red", "Yellow"];
+var candies = ["blue", "Orange", "Red", "Yellow"];
 var board = [];
 var row = 9;
 var col = 9;
@@ -53,7 +52,8 @@ function closePopup() {
  }
  function recordscore(){  
   resetGame();
- }function startGamePlay() {
+ }
+ function startGamePlay() {
     clearInterval(timerInterval); 
     timeleft = 20; 
     document.getElementById("timer").innerText = `Time left: ${timeleft}`;
@@ -75,7 +75,7 @@ function startGame() {
         for (let c = 0; c < col; c++) {
             let candy = document.createElement("img");
             candy.id = r + "-" + c;
-            candy.src = "./images/"+ randomCandy() + ".jpg"; 
+            candy.src = "./images/"+ randomCandy() + ".png"; 
             candy.setAttribute("draggable", "true");
             candy.addEventListener("dragstart", dragStart);
             candy.addEventListener("dragover", dragOver);
@@ -141,14 +141,13 @@ function crushThree(){
             if(candy1 && candy2 && candy3 && 
                 candy1.src == candy2.src && candy2.src == candy3.src && 
                 !candy1.src.includes("blank")) {
-                candy1.src = "./images/blank.jpg";
-                candy2.src = "./images/blank.jpg";
-                candy3.src = "./images/blank.jpg";
+                candy1.src = "./images/blank.png";
+                candy2.src = "./images/blank.png";
+                candy3.src = "./images/blank.png";
                 score +=1;
             }
         }
     }
-
     for (let c = 0; c < col; c++){
         for (let r = 0; r < row - 2; r++){
             let candy1 = board[r][c];
@@ -157,9 +156,9 @@ function crushThree(){
             if(candy1 && candy2 && candy3 && 
                 candy1.src == candy2.src && candy2.src == candy3.src && 
                 !candy1.src.includes("blank")) {
-                candy1.src = "./images/blank.jpg";
-                candy2.src = "./images/blank.jpg";
-                candy3.src = "./images/blank.jpg";
+                candy1.src = "./images/blank.png";
+                candy2.src = "./images/blank.png";
+                candy3.src = "./images/blank.png";
                 score +=1;
             }
         }
@@ -172,12 +171,12 @@ function crushThree(){
            emptySpaces++;
         } else if (emptySpaces > 0) {
            board[r + emptySpaces][c].src = board[r][c].src;
-           board[r][c].src = "./images/blank.jpg";
+           board[r][c].src = "./images/blank.png";
         }
      }
 
      for (let r = 0; r < emptySpaces; r++) {
-        board[r][c].src = "./images/" + randomCandy() + ".jpg";
+        board[r][c].src = "./images/" + randomCandy() + ".png";
      }
   }
 }
@@ -207,7 +206,6 @@ for (let c = 0; c < col; c++){
         }
     }
 }
-return false;
+return false;
 }
-
 
