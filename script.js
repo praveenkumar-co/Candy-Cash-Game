@@ -1,4 +1,5 @@
 let popup = document.getElementById("popup");
+let exit = document.querySelector("#exit");
 let timerElement = document.getElementById("timer");
 var candies = ["blue", "Orange", "Red", "Yellow"];
 var board = [];
@@ -40,6 +41,7 @@ function startTimer() {
       }
   }, 1000);
 }
+
 function openPopup() {
   let popup = document.getElementById("popup");
   popup.style.display = "block";  

@@ -3,13 +3,22 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Welcome to Candy</title>
+   <title>Welcome to Candy-Crush</title>
    <link rel="stylesheet" href="style.css">
    <script defer src="script.js"></script>
 </head>
-<body>  
+<body>
+   <div class="home">
+      <span id="element"></span>
+      <ul>
+      <div id="home" class="decoration"><li><a href="#container">Play Game</a></li></div>
+      <div id="details" class="decoration"><li><a href="https://en.wikipedia.org/wiki/Candy_Crush_Saga" target="_blank">About Game</a></li></div>
+      <div id="exit" class="decoration"><li><a href="https://www.google.com">Exit Game</a></li></div>
+      </ul>
+   </div>
+   <div id="container">
    <!-- Timer Display -->
-   <div id="timer">Time left: 30</div> 
+   <div id="timer" class="decoration">Time left: 30</div> 
 
    <!-- Warning Message (Hidden Initially) -->
    <div id="warning" style="display: none;">⚠ Hurry Up! </div>
@@ -27,5 +36,13 @@
       <p>Your final score: <span id="finalScore">0</span></p>
       <button type="button" onclick="closePopup()">OK</button>
    </div>  
+   </div>
+   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+   <script>
+      var typed = new Typed('#element', {
+        strings: ['Welcome to the World of Candies.......','You can play our game now👍👍'],
+        typeSpeed: 70,
+      });
+   </script>
 </body> 
 </html>
