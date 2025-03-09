@@ -1,5 +1,4 @@
 let popup = document.getElementById("popup");
-let exit = document.querySelector("#exit");
 let timerElement = document.getElementById("timer");
 var candies = ["blue", "Orange", "Red", "Yellow"];
 var board = [];
@@ -8,14 +7,11 @@ var col = 9;
 var currTile;
 var otherTile;
 var score = 0;
-var timeleft = 30;
+var timeleft = 20;
 var timerInterval;
 window.onload = function () {
     startGame();
-    startTimer();
-    window.setInterval(function(){
-      crushCandy();
-    }, 300);
+    startTimer(); 
 };
 function startTimer() {
   let timerElement = document.getElementById("timer");
@@ -42,6 +38,7 @@ function startTimer() {
   }, 1000);
 }
 
+ 
 function openPopup() {
   let popup = document.getElementById("popup");
   popup.style.display = "block";  
@@ -49,22 +46,23 @@ function openPopup() {
 }
 function closePopup() {
   document.getElementById("popup");
-  popup.style.display = "none";   
+  popup.style.display = "none";
+  resetGame();   
 } 
  function endGame (){
   alert("Time is up ! Your final score is " + score);
   recordscore();
  }
  function recordscore(){
-  let scoreTable = document.getElementById("ScoreTable");
-  let newrow = scoreTable.insertRow();
-  let cell = newRow.insertCell(0);
-  cell.innerText = score;
+  
   resetGame();
  }
  function resetGame(){
   score = 0;
-  timeleft = 20 ;
+  document.getElementById("score").innerText = score;
+  timeleft = 20;
+  board = [];
+  document.getElementById("board").innerHTML ="";
   startGame();
   startTimer();
  }
@@ -78,7 +76,7 @@ function startGame() {
         for (let c = 0; c < col; c++) {
             let candy = document.createElement("img");
             candy.id = r + "-" + c;
-            candy.src = "./images/"+ randomCandy() + ".jpg"; 
+            candy.src = "./images/"+ randomCandy() + ".png"; 
             candy.setAttribute("draggable", "true");
             candy.addEventListener("dragstart", dragStart);
             candy.addEventListener("dragover", dragOver);
@@ -122,6 +120,10 @@ function dragEnd() {
           currTile.src = otherImg;
           otherTile.src = currImg;
         }
+        else{
+            crushCandy();
+            applyGravity();
+        }
     }
 }
 
@@ -140,9 +142,9 @@ function crushThree(){
             if(candy1 && candy2 && candy3 && 
                 candy1.src == candy2.src && candy2.src == candy3.src && 
                 !candy1.src.includes("blank")) {
-                candy1.src = "./images/blank.jpg";
-                candy2.src = "./images/blank.jpg";
-                candy3.src = "./images/blank.jpg";
+                candy1.src = "./images/blank.png";
+                candy2.src = "./images/blank.png";
+                candy3.src = "./images/blank.png";
                 score +=1;
             }
         }
@@ -156,9 +158,9 @@ function crushThree(){
             if(candy1 && candy2 && candy3 && 
                 candy1.src == candy2.src && candy2.src == candy3.src && 
                 !candy1.src.includes("blank")) {
-                candy1.src = "./images/blank.jpg";
-                candy2.src = "./images/blank.jpg";
-                candy3.src = "./images/blank.jpg";
+                candy1.src = "./images/blank.png";
+                candy2.src = "./images/blank.png";
+                candy3.src = "./images/blank.png";
                 score +=1;
             }
         }
@@ -171,12 +173,12 @@ function crushThree(){
            emptySpaces++;
         } else if (emptySpaces > 0) {
            board[r + emptySpaces][c].src = board[r][c].src;
-           board[r][c].src = "./images/blank.jpg";
+           board[r][c].src = "./images/blank.png";
         }
      }
 
      for (let r = 0; r < emptySpaces; r++) {
-        board[r][c].src = "./images/" + randomCandy() + ".jpg" ;
+        board[r][c].src = "./images/" + randomCandy() + ".png";
      }
   }
 }
@@ -206,5 +208,6 @@ for (let c = 0; c < col; c++){
         }
     }
 }
-return false;
+return false;
 }
+
