@@ -7,7 +7,7 @@ body{
    background-size:cover;
    background-position:center;
    background-repeat:no-repeat;
-   height:100vh;
+   height:110vh;
    width:100vw;
    margin:0;   
    color:#000000;
@@ -63,7 +63,7 @@ text-align:center;
    background:linear-gradient(to right, #eebefc, #ffb95d); 
     width :150px;
     padding :10px;
-    margin:60px;
+    margin:20px;
     display:flex;
     justify-content:center;
      align-items:center;
