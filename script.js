@@ -14,7 +14,6 @@ window.onload = function () {
     startTimer();
     window.setInterval(function(){
       crushCandy();
-      applyGravity();
     }, 300);
 };
 function startTimer() {
