@@ -13,9 +13,6 @@ var timerInterval;
 window.onload = function () {
     startGame();
     startTimer();
-    window.setInterval(function(){
-      crushCandy();
-    }, 300);
 };
 function startTimer() {
   let timerElement = document.getElementById("timer");
@@ -49,17 +46,14 @@ function openPopup() {
 }
 function closePopup() {
   document.getElementById("popup");
-  popup.style.display = "none";   
+  popup.style.display = "none";
+  resetGame();   
 } 
  function endGame (){
   alert("Time is up ! Your final score is " + score);
   recordscore();
  }
  function recordscore(){
-  let scoreTable = document.getElementById("ScoreTable");
-  let newrow = scoreTable.insertRow();
-  let cell = newRow.insertCell(0);
-  cell.innerText = score;
   resetGame();
  }
  function resetGame(){
