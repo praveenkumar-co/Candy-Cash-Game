@@ -7,13 +7,12 @@ var col = 9;
 var currTile;
 var otherTile;
 var score = 0;
-var timeleft = 20;
+var timeleft = 30;
 var timerInterval;
 window.onload = function () {
-    startGame();
-    startTimer(); 
+    startGame();   
 };
-function startTimer() {
+function startTimer() {   
   let timerElement = document.getElementById("timer");
   let warningElement = document.getElementById("warning");
   timerInterval = setInterval(() => {
@@ -36,9 +35,7 @@ function startTimer() {
                     openPopup();  
       }
   }, 1000);
-}
-
- 
+} 
 function openPopup() {
   let popup = document.getElementById("popup");
   popup.style.display = "block";  
@@ -53,19 +50,20 @@ function closePopup() {
   alert("Time is up ! Your final score is " + score);
   recordscore();
  }
- function recordscore(){
-  
+ function recordscore(){  
   resetGame();
- }
- function resetGame(){
-  score = 0;
-  document.getElementById("score").innerText = score;
-  timeleft = 20;
-  board = [];
-  document.getElementById("board").innerHTML ="";
-  startGame();
-  startTimer();
- }
+ }function startGamePlay() {
+    clearInterval(timerInterval); 
+    timeleft = 20; 
+    document.getElementById("timer").innerText = `Time left: ${timeleft}`;
+    score = 0; 
+    document.getElementById("score").innerText = score;
+    board = [];
+    document.getElementById("board").innerHTML = "";
+    startGame(); 
+    startTimer();
+    document.getElementById("popup").style.display = "none";}
+
 function randomCandy() {
     return candies[Math.floor(Math.random() * candies.length)];
 }
