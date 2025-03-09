@@ -1,7 +1,7 @@
 
 let popup = document.getElementById("popup");
 let timerElement = document.getElementById("timer");
-var candies = ["Blue", "Orange", "Red", "Yellow"];
+var candies = ["blue", "Orange", "Red", "Yellow"];
 var board = [];
 var row = 9;
 var col = 9;
